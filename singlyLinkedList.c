@@ -4,106 +4,141 @@
 
 static singlyLinkedListNode* AddNodeAfter(singlyLinkedListNode* current, singlyLinkedListNode* node)
 {
-  return NULL;
+  if(current == NULL) return NULL;
+
+  node->next = current->next;
+
+  current->next = node;
+
+  return current;
 }
 
 static singlyLinkedListNode* AddValueAfter(singlyLinkedListNode* current, int value)
 {
-  return NULL;
+  if(current == NULL) return NULL;
+
+  singlyLinkedListNode* temporary = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary->next = current->next;
+  temporary->value = value;
+
+  current->next = temporary;
+
+  return current;
 }
 
+// not possible with singlyLinkedList
 static singlyLinkedListNode* AddNodeBefore(singlyLinkedListNode* current, singlyLinkedListNode* node)
 {
-  return NULL;
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
+  return current;
 }
 
+// not possible with singlyLinkedList
 static singlyLinkedListNode* AddValueBefore(singlyLinkedListNode* current, int value)
 {
-  return NULL;
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
+  return current;
 }
 
 static singlyLinkedListNode* AddNodeFirst(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* AddValueFirst(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* AddNodeLast(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* AddValueLast(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* Clear(singlyLinkedListNode* head)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* Contains(int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* CopyToArray(singlyLinkedListNode* head, int startingIndex)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* Equal(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static int Count(singlyLinkedListNode* head)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return 0;
 }
 
 static singlyLinkedListNode* FindFirst(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* FindLast(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* RemoveNode(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* RemoveFirst(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* RemoveLast(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head, int value)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
 static char* ToString(singlyLinkedListNode* head)
 {
+  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return NULL;
 }
 
