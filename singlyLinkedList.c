@@ -2,6 +2,111 @@
 #include <stdlib.h>
 #include "singlyLinkedList.h"
 
+static singlyLinkedListNode* AddNodeAfter(singlyLinkedListNode* current, singlyLinkedListNode* node)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddValueAfter(singlyLinkedListNode* current, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddNodeBefore(singlyLinkedListNode* current, singlyLinkedListNode* node)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddValueBefore(singlyLinkedListNode* current, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddNodeFirst(singlyLinkedListNode* head, singlyLinkedListNode* node)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddValueFirst(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddNodeLast(singlyLinkedListNode* head, singlyLinkedListNode* node)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* AddValueLast(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* Clear(singlyLinkedListNode* head)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* Contains(int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* CopyToArray(singlyLinkedListNode* head, int startingIndex)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* Equal(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo)
+{
+  return NULL;
+}
+
+static int Count(singlyLinkedListNode* head)
+{
+  return 0;
+}
+
+static singlyLinkedListNode* FindFirst(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* FindLast(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* RemoveNode(singlyLinkedListNode* head, singlyLinkedListNode* node)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* RemoveFirst(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* RemoveLast(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head, int value)
+{
+  return NULL;
+}
+
+static char* ToString(singlyLinkedListNode* head)
+{
+  return NULL;
+}
+
 static singlyLinkedListNode* DeleteInOrder(singlyLinkedListNode *head, int value)
 {
   if(head == NULL) return NULL;
@@ -86,4 +191,7 @@ static void Print(singlyLinkedListNode* head)
 
 singlyLinkedListAPIStruct const singlyLinkedListAPI =
 {DeleteInOrder, InsertInOrder,
-  InsertAfterNode, Print};
+  InsertAfterNode, Print, AddNodeAfter, AddValueAfter, AddNodeBefore, AddValueBefore,
+AddNodeFirst, AddValueFirst, AddNodeLast, AddValueLast, Clear, Contains, CopyToArray,
+Equal, Count, FindFirst, FindLast, RemoveNode, RemoveFirst, RemoveLast, RemoveStart,
+RemoveEnd, ToString};
