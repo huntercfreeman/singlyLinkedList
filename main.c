@@ -30,8 +30,6 @@ int main()
   head = singlyLinkedListAPI.DeleteInOrder(head, 5);
   singlyLinkedListAPI.Print(head);
 
-  head = singlyLinkedListAPI.AddValueBefore(head, 9);
-
   printf("Delete in order 7\n");
   head = singlyLinkedListAPI.DeleteInOrder(head, 7);
   singlyLinkedListAPI.Print(head);

@@ -42,26 +42,74 @@ static singlyLinkedListNode* AddValueBefore(singlyLinkedListNode* current, int v
 
 static singlyLinkedListNode* AddNodeFirst(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  node->next = head;
+
+  return node;
 }
 
 static singlyLinkedListNode* AddValueFirst(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  singlyLinkedListNode* temporary = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary->value = value;
+  temporary->next = head;
+
+  return temporary;
 }
 
 static singlyLinkedListNode* AddNodeLast(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  if(head->next == NULL)
+  {
+    node->next = NULL;
+
+    head->next = node;
+
+    return head;
+  }
+
+  singlyLinkedListNode* currentNode = head;
+  while(currentNode->next != NULL)
+  {
+    currentNode = currentNode->next;
+  }
+
+  node->next = NULL;
+
+  currentNode->next = node;
+
+  return head;
 }
 
 static singlyLinkedListNode* AddValueLast(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  if(head->next == NULL)
+  {
+    singlyLinkedListNode* temporary = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+    temporary->value = value;
+    temporary->next = NULL;
+
+    head->next = temporary;
+
+    return head;
+  }
+
+  singlyLinkedListNode* currentNode = head;
+  while(currentNode->next != NULL)
+  {
+    currentNode = currentNode->next;
+  }
+
+  singlyLinkedListNode* temporary = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary->value = value;
+  temporary->next = NULL;
+
+  currentNode->next = temporary;
+
+  return head;
 }
 
 static singlyLinkedListNode* Clear(singlyLinkedListNode* head)
