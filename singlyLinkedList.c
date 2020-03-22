@@ -356,14 +356,43 @@ static singlyLinkedListNode* RemoveLast(singlyLinkedListNode* head, int value)
 
 static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  singlyLinkedListNode* newHead = head->next;
+  free(head);
+  head = NULL;
+
+  return newHead;
 }
 
 static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  singlyLinkedListNode* previousToRemoveNode = NULL;
+  singlyLinkedListNode* removeNode = NULL;
+
+  if(head->next == NULL)
+  {
+    free(head);
+    head = NULL;
+
+    return NULL;
+  }
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    previousToRemoveNode = temporary;
+    temporary = temporary->next;
+    removeNode = temporary;
+  }
+
+  previousToRemoveNode->next = removeNode->next;
+  free(removeNode);
+  removeNode = NULL;
+
+  return head;
 }
 
 static char* ToString(singlyLinkedListNode* head)
