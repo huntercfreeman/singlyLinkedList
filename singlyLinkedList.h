@@ -40,14 +40,14 @@ typedef struct singlyLinkedListAPIStruct {
   // Removes all nodes from the LinkedList
   singlyLinkedListNode* (* const Clear)(singlyLinkedListNode* head);
 
-  // Determines whether a value is in the LinkedList
+  // Determines whether a value is in the LinkedList 0 is false anything else is true
   int (* const Contains)(singlyLinkedListNode* head, int value);
 
   // Copies the entire LinkedList to a compatible one-dimensional Array, starting at the specified index of the target array
   singlyLinkedListNode* (* const CopyToArray)(singlyLinkedListNode* head, int startingIndex);
 
   // Determines whether the specified object is equal to the current object.
-  singlyLinkedListNode* (* const Equal)(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo);
+  int (* const Equal)(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo);
 
   // Returns the number of nodes actually contained in the LinkedList
   int (* const Count)(singlyLinkedListNode* head);

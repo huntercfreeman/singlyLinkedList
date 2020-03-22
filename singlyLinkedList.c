@@ -166,10 +166,33 @@ static singlyLinkedListNode* CopyToArray(singlyLinkedListNode* head, int startin
   return NULL;
 }
 
-static singlyLinkedListNode* Equal(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo)
+static int Equal(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if((headOne == NULL) && (headTwo == NULL)) return 1;
+  if((headOne == NULL) || (headTwo == NULL)) return 0;
+
+  int equivalence = 1;
+
+  singlyLinkedListNode* temporary1 = headOne;
+  singlyLinkedListNode* temporary2 = headTwo;
+
+  if(temporary1->value != temporary2->value) equivalence = 0;
+
+  while(equivalence && (temporary1->next != NULL) && (temporary2->next != NULL))
+  {
+    temporary1 = temporary1->next;
+    temporary2 = temporary2->next;
+
+    if(temporary1->value != temporary2->value) equivalence = 0;
+  }
+
+  if(equivalence != 0)
+  {
+    if((temporary1->next == NULL) && (temporary2->next == NULL)) return 1;
+    if((temporary1->next == NULL) || (temporary2->next == NULL)) return 0;
+  }
+  
+  return equivalence;
 }
 
 static int Count(singlyLinkedListNode* head)
