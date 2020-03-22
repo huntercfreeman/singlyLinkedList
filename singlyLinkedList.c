@@ -214,14 +214,36 @@ static int Count(singlyLinkedListNode* head)
 
 static singlyLinkedListNode* FindFirst(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
+  if(head == NULL) return NULL;
+
+  if(head->value == value) return head;
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    temporary = temporary->next;
+    if(temporary->value == value) return temporary;
+  }
+
   return NULL;
 }
 
 static singlyLinkedListNode* FindLast(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  singlyLinkedListNode* foundNode = NULL;
+
+  if(head->value == value) foundNode = head;
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    temporary = temporary->next;
+    if(temporary->value == value) foundNode = temporary;
+  }
+
+  return foundNode;
 }
 
 static singlyLinkedListNode* RemoveNode(singlyLinkedListNode* head, singlyLinkedListNode* node)
