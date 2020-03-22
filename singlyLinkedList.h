@@ -41,7 +41,7 @@ typedef struct singlyLinkedListAPIStruct {
   singlyLinkedListNode* (* const Clear)(singlyLinkedListNode* head);
 
   // Determines whether a value is in the LinkedList
-  int (* const Contains)(int value);
+  int (* const Contains)(singlyLinkedListNode* head, int value);
 
   // Copies the entire LinkedList to a compatible one-dimensional Array, starting at the specified index of the target array
   singlyLinkedListNode* (* const CopyToArray)(singlyLinkedListNode* head, int startingIndex);

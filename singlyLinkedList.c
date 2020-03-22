@@ -143,9 +143,20 @@ static singlyLinkedListNode* Clear(singlyLinkedListNode* head)
   return NULL;
 }
 
-static int Contains(int value)
+static int Contains(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
+  if(head == NULL) return 0;
+
+  if(head->value == value) return 1;
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    temporary = temporay->next;
+
+    if(temporary->value == value) return 1;
+  }
+
   return 0;
 }
 
