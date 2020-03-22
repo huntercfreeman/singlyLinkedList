@@ -246,22 +246,112 @@ static singlyLinkedListNode* FindLast(singlyLinkedListNode* head, int value)
   return foundNode;
 }
 
-static singlyLinkedListNode* RemoveNode(singlyLinkedListNode* head, singlyLinkedListNode* node)
+static singlyLinkedListNode* RemoveNode(singlyLinkedListNode* head, singlyLinkedListNode* node, int (* predicate)(singlyLinkedListNode *node1, singlyLinkedListNode *node2))
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+  if(predicate == NULL) return NULL;
+
+  if(predicate(head, node))
+  {
+    singlyLinkedListNode* temporary = head->next;
+    free(head);
+    head = NULL;
+
+    return temporary;
+  }
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    singlyLinkedListNode* previousNode = temporary;
+    temporary = temporary->next;
+    if(predicate(temporary, node))
+    {
+      previousNode->next = temporary->next;
+      free(temporary);
+      temporary = NULL;
+      return head;
+    }
+  }
+
+  return head;
 }
 
 static singlyLinkedListNode* RemoveFirst(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  if(head->value == value)
+  {
+    singlyLinkedListNode* temporary = head->next;
+    free(head);
+    head = NULL;
+
+    return temporary;
+  }
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    singlyLinkedListNode* previousNode = temporary;
+    temporary = temporary->next;
+    if(temporary->value == value)
+    {
+      previousNode->next = temporary->next;
+      free(temporary);
+      temporary = NULL;
+      return head;
+    }
+  }
+
+  return head;
 }
 
 static singlyLinkedListNode* RemoveLast(singlyLinkedListNode* head, int value)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  if(head == NULL) return NULL;
+
+  singlyLinkedListNode* previousToRemoveNode = NULL;
+  singlyLinkedListNode* removeNode = NULL;
+
+  if(head->value == value)
+  {
+    removeNode = head;
+  }
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    singlyLinkedListNode* previousNode = temporary;
+    temporary = temporary->next;
+    if(temporary->value == value)
+    {
+      previousToRemoveNode = previousNode;
+      removeNode = temporary;
+    }
+  }
+
+  if(removeNode != NULL)
+  {
+    if(previousToRemoveNode == NULL)
+    {
+      // remove the head
+      singlyLinkedListNode* newHead = head->next;
+      free(head);
+      head = NULL;
+
+      return newHead;
+    }
+    else
+    {
+      previousToRemoveNode->next = removeNode->next;
+      free(removeNode);
+      removeNode = NULL;
+      return head;
+    }
+  }
+
+  return head;
 }
 
 static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head, int value)

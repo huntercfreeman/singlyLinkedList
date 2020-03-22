@@ -58,7 +58,7 @@ typedef struct singlyLinkedListAPIStruct {
   singlyLinkedListNode* (* const FindLast)(singlyLinkedListNode* head, int value);
 
   // Removes the specified node from the LinkedList
-  singlyLinkedListNode* (* const RemoveNode)(singlyLinkedListNode* head, singlyLinkedListNode* node);
+  singlyLinkedListNode* (* const RemoveNode)(singlyLinkedListNode* head, singlyLinkedListNode* node, int (* Predicate)(singlyLinkedListNode *node1, singlyLinkedListNode *node2));
   // Removes the first occurrence of the specified value from the LinkedList
   singlyLinkedListNode* (* const RemoveFirst)(singlyLinkedListNode* head, int value);
   // Removes the last occurrence of the specified value from the LinkedList
