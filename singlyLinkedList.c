@@ -114,14 +114,39 @@ static singlyLinkedListNode* AddValueLast(singlyLinkedListNode* head, int value)
 
 static singlyLinkedListNode* Clear(singlyLinkedListNode* head)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
+  if(head == NULL) return NULL;
+
+  if(head->next == NULL)
+  {
+    free(head);
+    head = NULL;
+
+    return NULL;
+  }
+
+  singlyLinkedListNode* temporary1 = head;
+  singlyLinkedListNode* temporary2 = head->next;
+  free(temporary1);
+  temporary1 = NULL;
+
+  while(temporary2->next != NULL)
+  {
+    temporary1 = temporary2;
+    temporary2 = temporary1->next;
+    free(temporary1);
+    temporary1 = NULL;
+  }
+
+  free(temporary2);
+  temporary2 = NULL;
+
   return NULL;
 }
 
-static singlyLinkedListNode* Contains(int value)
+static int Contains(int value)
 {
   fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return NULL;
+  return 0;
 }
 
 static singlyLinkedListNode* CopyToArray(singlyLinkedListNode* head, int startingIndex)
