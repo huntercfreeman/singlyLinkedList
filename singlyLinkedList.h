@@ -46,7 +46,7 @@ typedef struct singlyLinkedListAPIStruct {
   // Copies the entire LinkedList to a compatible one-dimensional Array, starting at the specified index of the target array
   singlyLinkedListNode* (* const CopyToArray)(singlyLinkedListNode* head, int startingIndex);
 
-  // Determines whether the specified object is equal to the current object.
+  // Determines whether the specified object is equal to the current object. 0 is false anything else is true.
   int (* const Equal)(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo);
 
   // Returns the number of nodes actually contained in the LinkedList
