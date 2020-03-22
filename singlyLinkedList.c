@@ -152,7 +152,7 @@ static int Contains(singlyLinkedListNode* head, int value)
   singlyLinkedListNode* temporary = head;
   while(temporary->next != NULL)
   {
-    temporary = temporay->next;
+    temporary = temporary->next;
 
     if(temporary->value == value) return 1;
   }
@@ -191,14 +191,25 @@ static int Equal(singlyLinkedListNode* headOne, singlyLinkedListNode* headTwo)
     if((temporary1->next == NULL) && (temporary2->next == NULL)) return 1;
     if((temporary1->next == NULL) || (temporary2->next == NULL)) return 0;
   }
-  
+
   return equivalence;
 }
 
 static int Count(singlyLinkedListNode* head)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return 0;
+  if(head == NULL) return 0;
+
+  int count = 1;
+
+  singlyLinkedListNode* temporary = head;
+  while(temporary->next != NULL)
+  {
+    temporary = temporary->next;
+
+    count++;
+  }
+
+  return count;
 }
 
 static singlyLinkedListNode* FindFirst(singlyLinkedListNode* head, int value)
