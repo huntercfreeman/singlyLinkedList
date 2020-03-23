@@ -6,6 +6,7 @@
 static stringBuilder* Append(stringBuilder *stringBuilder, char* value)
 {
   if(stringBuilder->capacity == 0) stringBuilder->capacity = 16;
+  if(stringBuilder->string == NULL) stringBuilder->string = (char*)malloc(sizeof(char) * stringBuilder->capacity);
 
   int argumentLength = strlen(value);
   int remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
