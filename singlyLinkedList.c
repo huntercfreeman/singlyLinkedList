@@ -354,7 +354,7 @@ static singlyLinkedListNode* RemoveLast(singlyLinkedListNode* head, int value)
   return head;
 }
 
-static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head, int value)
+static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head)
 {
   if(head == NULL) return NULL;
 
@@ -365,7 +365,7 @@ static singlyLinkedListNode* RemoveStart(singlyLinkedListNode* head, int value)
   return newHead;
 }
 
-static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head, int value)
+static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head)
 {
   if(head == NULL) return NULL;
 
