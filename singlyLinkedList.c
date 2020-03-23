@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "singlyLinkedList.h"
+#include "stringBuilder.h"
 
 static singlyLinkedListNode* AddNodeAfter(singlyLinkedListNode* current, singlyLinkedListNode* node)
 {
@@ -23,20 +24,6 @@ static singlyLinkedListNode* AddValueAfter(singlyLinkedListNode* current, int va
 
   current->next = temporary;
 
-  return current;
-}
-
-// not possible with singlyLinkedList
-static singlyLinkedListNode* AddNodeBefore(singlyLinkedListNode* current, singlyLinkedListNode* node)
-{
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
-  return current;
-}
-
-// not possible with singlyLinkedList
-static singlyLinkedListNode* AddValueBefore(singlyLinkedListNode* current, int value)
-{
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
   return current;
 }
 
@@ -397,7 +384,8 @@ static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head)
 
 static char* ToString(singlyLinkedListNode* head)
 {
-  fprintf(stderr, "ERROR in file %s line:%d %s is not implemented do not use\n", __FILE__, __LINE__, __FUNCTION__);
+  stringBuilder* stringBuilder = malloc(sizeof(stringBuilder));
+  stringBuilderAPI.Append(stringBuilder, "Hello World!");
   return NULL;
 }
 
@@ -485,7 +473,7 @@ static void Print(singlyLinkedListNode* head)
 
 singlyLinkedListAPIStruct const singlyLinkedListAPI =
 {DeleteInOrder, InsertInOrder,
-  InsertAfterNode, Print, AddNodeAfter, AddValueAfter, AddNodeBefore, AddValueBefore,
+  InsertAfterNode, Print, AddNodeAfter, AddValueAfter,
 AddNodeFirst, AddValueFirst, AddNodeLast, AddValueLast, Clear, Contains, CopyToArray,
 Equal, Count, FindFirst, FindLast, RemoveNode, RemoveFirst, RemoveLast, RemoveStart,
 RemoveEnd, ToString};

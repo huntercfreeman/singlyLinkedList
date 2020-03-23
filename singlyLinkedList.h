@@ -23,10 +23,6 @@ typedef struct singlyLinkedListAPIStruct {
   singlyLinkedListNode* (* const AddNodeAfter)(singlyLinkedListNode* current, singlyLinkedListNode* node);
   // Adds a new node containing the specified value after the specified existing node in the LinkedList
   singlyLinkedListNode* (* const AddValueAfter)(singlyLinkedListNode* current, int value);
-  // Adds the specified new node before the specified existing node in the LinkedList
-  singlyLinkedListNode* (* const AddNodeBefore)(singlyLinkedListNode* current, singlyLinkedListNode* node);
-  // Adds a new node containing the specified value before the specified existing node in the LinkedList
-  singlyLinkedListNode* (* const AddValueBefore)(singlyLinkedListNode* current, int value);
 
   // Adds the specified new node at the start of the LinkedList
   singlyLinkedListNode* (* const AddNodeFirst)(singlyLinkedListNode* head, singlyLinkedListNode* node);
