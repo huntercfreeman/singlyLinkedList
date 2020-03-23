@@ -5,7 +5,7 @@
 
 static stringBuilder* Append(stringBuilder *stringBuilder, char* value)
 {
-  if(stringBuilder->capacity = 0) stringBuilder->capacity = 16;
+  if(stringBuilder->capacity == 0) stringBuilder->capacity = 16;
 
   int argumentLength = strlen(value);
   int remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
@@ -17,7 +17,10 @@ static stringBuilder* Append(stringBuilder *stringBuilder, char* value)
     remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
   }
 
-  return NULL;
+  snprintf(stringBuilder->string + stringBuilder->length, remainingSpace, "%s", value);
+  stringBuilder->length += argumentLength;
+
+  return stringBuilder;
 }
 
 stringBuilderAPIStruct const stringBuilderAPI = {Append};
