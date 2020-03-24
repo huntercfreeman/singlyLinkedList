@@ -384,9 +384,23 @@ static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head)
 
 static char* ToString(singlyLinkedListNode* head)
 {
+  if(head == NULL) return NULL;
+
   stringBuilder* stringBuilder = malloc(sizeof(stringBuilder));
-  stringBuilderAPI.Append(stringBuilder, "Hello World!");
-  return NULL;
+  stringBuilderAPI.AppendInt(stringBuilder, head->value);
+
+  singlyLinkedListNode* temporary = head;
+
+  while(temporary->next != NULL)
+  {
+    stringBuilderAPI.AppendChars(stringBuilder, "->");
+
+    temporary = temporary->next;
+    stringBuilderAPI.AppendInt(stringBuilder, temporary->value);
+  }
+  //stringBuilderAPI.AppendChars(stringBuilder, "\n");
+
+  return stringBuilder->string;
 }
 
 static singlyLinkedListNode* DeleteInOrder(singlyLinkedListNode *head, int value)

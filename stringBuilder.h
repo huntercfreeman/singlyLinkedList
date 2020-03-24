@@ -9,7 +9,8 @@ typedef struct stringBuilder {
 } stringBuilder;
 
 typedef struct stringBuilderAPIStruct {
-  stringBuilder* (* const Append)(stringBuilder *stringBuilder, char* value);
+  stringBuilder* (* const AppendChars)(stringBuilder *stringBuilder, char* value);
+  stringBuilder* (* const AppendInt)(stringBuilder *stringBuilder, int value);
 } stringBuilderAPIStruct;
 
 stringBuilderAPIStruct const stringBuilderAPI;
