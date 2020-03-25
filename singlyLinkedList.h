@@ -14,10 +14,9 @@ typedef struct singlyLinkedListNode {
 } singlyLinkedListNode;
 
 typedef struct singlyLinkedListAPIStruct {
-  singlyLinkedListNode* (* const DeleteInOrder)(singlyLinkedListNode *head, int value);
-  singlyLinkedListNode* (* const InsertInOrder)(singlyLinkedListNode *head, int value);
-  singlyLinkedListNode* (* const InsertAfterNode)(singlyLinkedListNode* current, int value);
   void (* const Print)(singlyLinkedListNode* head);
+
+  singlyLinkedListNode* (* const InsertInOrder)(singlyLinkedListNode *head, int value);
 
   // Adds the specified new node after the specified existing node in the LinkedList
   singlyLinkedListNode* (* const AddNodeAfter)(singlyLinkedListNode* current, singlyLinkedListNode* node);
@@ -25,13 +24,13 @@ typedef struct singlyLinkedListAPIStruct {
   singlyLinkedListNode* (* const AddValueAfter)(singlyLinkedListNode* current, int value);
 
   // Adds the specified new node at the start of the LinkedList
-  singlyLinkedListNode* (* const AddNodeFirst)(singlyLinkedListNode* head, singlyLinkedListNode* node);
+  singlyLinkedListNode* (* const AddNodeStart)(singlyLinkedListNode* head, singlyLinkedListNode* node);
   // Adds a new node containing the specified value at the start of the LinkedList
-  singlyLinkedListNode* (* const AddValueFirst)(singlyLinkedListNode* head, int value);
+  singlyLinkedListNode* (* const AddValueStart)(singlyLinkedListNode* head, int value);
   // Adds the specified new node at the end of the LinkedList
-  singlyLinkedListNode* (* const AddNodeLast)(singlyLinkedListNode* head, singlyLinkedListNode* node);
+  singlyLinkedListNode* (* const AddNodeEnd)(singlyLinkedListNode* head, singlyLinkedListNode* node);
   // Adds a new node containing the specified value at the end of the LinkedList
-  singlyLinkedListNode* (* const AddValueLast)(singlyLinkedListNode* head, int value);
+  singlyLinkedListNode* (* const AddValueEnd)(singlyLinkedListNode* head, int value);
 
   // Removes all nodes from the LinkedList
   singlyLinkedListNode* (* const Clear)(singlyLinkedListNode* head);

@@ -27,14 +27,14 @@ static singlyLinkedListNode* AddValueAfter(singlyLinkedListNode* current, int va
   return current;
 }
 
-static singlyLinkedListNode* AddNodeFirst(singlyLinkedListNode* head, singlyLinkedListNode* node)
+static singlyLinkedListNode* AddNodeStart(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
   node->next = head;
 
   return node;
 }
 
-static singlyLinkedListNode* AddValueFirst(singlyLinkedListNode* head, int value)
+static singlyLinkedListNode* AddValueStart(singlyLinkedListNode* head, int value)
 {
   singlyLinkedListNode* temporary = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
   temporary->value = value;
@@ -43,7 +43,7 @@ static singlyLinkedListNode* AddValueFirst(singlyLinkedListNode* head, int value
   return temporary;
 }
 
-static singlyLinkedListNode* AddNodeLast(singlyLinkedListNode* head, singlyLinkedListNode* node)
+static singlyLinkedListNode* AddNodeEnd(singlyLinkedListNode* head, singlyLinkedListNode* node)
 {
   if(head == NULL) return NULL;
 
@@ -69,7 +69,7 @@ static singlyLinkedListNode* AddNodeLast(singlyLinkedListNode* head, singlyLinke
   return head;
 }
 
-static singlyLinkedListNode* AddValueLast(singlyLinkedListNode* head, int value)
+static singlyLinkedListNode* AddValueEnd(singlyLinkedListNode* head, int value)
 {
   if(head == NULL) return NULL;
 
@@ -403,33 +403,6 @@ static char* ToString(singlyLinkedListNode* head)
   return stringBuilder->string;
 }
 
-static singlyLinkedListNode* DeleteInOrder(singlyLinkedListNode *head, int value)
-{
-  if(head == NULL) return NULL;
-
-  if(head->value == value)
-  {
-    singlyLinkedListNode *temporary = head->next;
-    free(head);
-    head = NULL;
-
-    return temporary;
-  }
-
-  singlyLinkedListNode* temporary = head;
-  while(temporary->next != NULL)
-  {
-    if(temporary->next->value == value)
-    {
-        temporary->next = temporary->next->next;
-        return head;
-    }
-    temporary = temporary->next;
-  }
-
-  return head;
-}
-
 static singlyLinkedListNode* InsertInOrder(singlyLinkedListNode *head, int value)
 {
   if(head == NULL) return NULL;
@@ -458,19 +431,6 @@ static singlyLinkedListNode* InsertInOrder(singlyLinkedListNode *head, int value
   return head;
 }
 
-static singlyLinkedListNode* InsertAfterNode(singlyLinkedListNode* current, int value)
-{
-  if(current == NULL) return NULL;
-
-  singlyLinkedListNode* temporary = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
-  temporary->next = current->next;
-  temporary->value = value;
-
-  current->next = temporary;
-
-  return current;
-}
-
 static void Print(singlyLinkedListNode* head)
 {
   if(head == NULL) return;
@@ -486,8 +446,7 @@ static void Print(singlyLinkedListNode* head)
 }
 
 singlyLinkedListAPIStruct const singlyLinkedListAPI =
-{DeleteInOrder, InsertInOrder,
-  InsertAfterNode, Print, AddNodeAfter, AddValueAfter,
-AddNodeFirst, AddValueFirst, AddNodeLast, AddValueLast, Clear, Contains, CopyToArray,
+{Print, InsertInOrder, AddNodeAfter, AddValueAfter,
+AddNodeStart, AddValueStart, AddNodeEnd, AddValueEnd, Clear, Contains, CopyToArray,
 Equal, Count, FindFirst, FindLast, RemoveNode, RemoveFirst, RemoveLast, RemoveStart,
 RemoveEnd, ToString};
