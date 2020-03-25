@@ -11,11 +11,20 @@ static stringBuilder* AppendChars(stringBuilder *stringBuilder, char* value)
   int argumentLength = strlen(value);
   int remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
 
+  int capacityChanged = 0;
+
   while(remainingSpace - argumentLength < 0)
   {
+    capacityChanged = 1;
+
     stringBuilder->capacity *= 2;
 
     remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
+  }
+
+  if(capacityChanged)
+  {
+    stringBuilder->string = (char*)realloc(stringBuilder->string, stringBuilder->capacity);
   }
 
   snprintf(stringBuilder->string + stringBuilder->length, remainingSpace, "%s", value);
@@ -33,11 +42,20 @@ static stringBuilder* AppendInt(stringBuilder *stringBuilder, int value)
 
   int remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
 
+  int capacityChanged = 0;
+
   while(remainingSpace - argumentLength < 0)
   {
+    capacityChanged = 1;
+
     stringBuilder->capacity *= 2;
 
     remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
+  }
+
+  if(capacityChanged)
+  {
+    stringBuilder->string = (char*)realloc(stringBuilder->string, stringBuilder->capacity);
   }
 
   snprintf(stringBuilder->string + stringBuilder->length, remainingSpace, "%d", value);
