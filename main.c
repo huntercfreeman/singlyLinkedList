@@ -26,16 +26,54 @@ int NULLTests()
   singlyLinkedListNode* temporary1 = NULL;
   singlyLinkedListNode* temporary2 = NULL;
   char* asString = NULL;
-  // InsertInOrder
 
+  // InsertInOrder
   temporary1 = singlyLinkedListAPI.InsertInOrder(NULL, 1);
   asString = singlyLinkedListAPI.ToString(temporary1);
   assert(NULL == asString);
 
+  // AddNodeAfter
   temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
   temporary2->value = 5;
   temporary2->next = NULL;
   temporary1 = singlyLinkedListAPI.AddNodeAfter(NULL, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(NULL == asString);
+  free(temporary2);
+  temporary2 = NULL;
+
+  // AddValueAfter
+  temporary1 = singlyLinkedListAPI.AddValueAfter(NULL, 10);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(NULL == asString);
+
+  // AddNodeStart
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 5;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeStart(NULL, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("5", asString) == 0);
+  free(temporary2);
+  temporary2 = NULL;
+
+  // AddValueStart
+  temporary1 = singlyLinkedListAPI.AddValueStart(NULL, 10);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("10", asString) == 0);
+
+  // AddNodeEnd
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 5;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeEnd(NULL, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(NULL == asString);
+  free(temporary2);
+  temporary2 = NULL;
+
+  // AddValueEnd
+  temporary1 = singlyLinkedListAPI.AddValueEnd(NULL, 10);
   asString = singlyLinkedListAPI.ToString(temporary1);
   assert(NULL == asString);
 
