@@ -246,6 +246,39 @@ int OneNULLTests()
   int count = singlyLinkedListAPI.Count(head);
   assert(1 == count);
 
+  // FindFirst
+  temporary1 = singlyLinkedListAPI.FindFirst(head, 1);
+  assert(temporary1->value == 1);
+
+  // FindLast
+  temporary1 = singlyLinkedListAPI.FindLast(head, 1);
+  assert(temporary1->value == 1);
+
+  // RemoveFirst
+  temporary1 = singlyLinkedListAPI.RemoveFirst(head, 1);
+  assert(NULL == temporary1);
+  head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->value = 1;
+  head->next = NULL;
+
+  // RemoveLast
+  temporary1 = singlyLinkedListAPI.RemoveLast(head, 1);
+  assert(NULL == temporary1);
+  head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->value = 1;
+  head->next = NULL;
+
+  // RemoveStart
+  temporary1 = singlyLinkedListAPI.RemoveStart(head);
+  assert(NULL == temporary1);
+  head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->value = 1;
+  head->next = NULL;
+
+  // RemoveEnd
+  temporary1 = singlyLinkedListAPI.RemoveEnd(head);
+  assert(NULL == temporary1);
+
   return 0;
 }
 
