@@ -143,18 +143,30 @@ int OneNULLTests()
   head->value = 1;
   head->next = NULL;
   singlyLinkedListNode* temporary1;
+  singlyLinkedListNode* temporary2;
   char* asString;
 
+  // InsertInOrder
   temporary1 = singlyLinkedListAPI.InsertInOrder(head, 10);
   asString = singlyLinkedListAPI.ToString(temporary1);
-  printf("%s", asString);
   assert(strcmp("1->10",asString) == 0);
   free(temporary1->next);
   head->next = NULL;
 
+  // InsertInOrder
   temporary1 = singlyLinkedListAPI.InsertInOrder(head, -2);
-  asString = singlyLinkedListAPI.ToString(head);
+  asString = singlyLinkedListAPI.ToString(temporary1);
   assert(strcmp("-2->1",asString) == 0);
+  free(temporary1);
+  head->next = NULL;
+
+  // AddNodeAfter
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 5;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeAfter(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->5",asString) == 0);
   free(temporary1->next);
   head->next = NULL;
 
