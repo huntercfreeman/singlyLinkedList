@@ -382,6 +382,7 @@ static singlyLinkedListNode* RemoveEnd(singlyLinkedListNode* head)
   return head;
 }
 
+// Look into freeing the stringBuilder
 static char* ToString(singlyLinkedListNode* head)
 {
   if(head == NULL) return NULL;

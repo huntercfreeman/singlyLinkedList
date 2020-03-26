@@ -38,7 +38,7 @@ static stringBuilder* AppendInt(stringBuilder *stringBuilder, int value)
   if(stringBuilder->capacity == 0) stringBuilder->capacity = 16;
   if(stringBuilder->string == NULL) stringBuilder->string = (char*)malloc(sizeof(char) * stringBuilder->capacity);
 
-  int argumentLength = snprintf(NULL, 0,"%d",42);
+  int argumentLength = snprintf(NULL, 0,"%d", value);
 
   int remainingSpace = stringBuilder->capacity - stringBuilder->length - 1;
 

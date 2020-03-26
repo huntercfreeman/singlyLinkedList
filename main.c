@@ -6,6 +6,8 @@
 
 int NULLTests();
 int OneNULLTests();
+int OneTwoNULLTests();
+int OneTwoThreeNULLTests();
 
 int main()
 {
@@ -16,8 +18,11 @@ int main()
   OneNULLTests();
 
   // 1->2->NULL Tests
+  OneTwoNULLTests();
 
   // 1->2->3->NULL Tests
+  OneTwoThreeNULLTests();
+
   return 0;
 }
 
@@ -137,8 +142,31 @@ int OneNULLTests()
   singlyLinkedListNode* head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
   head->value = 1;
   head->next = NULL;
-  char* asString = singlyLinkedListAPI.ToString(head);
-  assert(strcmp("1",asString) == 0);
+  singlyLinkedListNode* temporary1;
+  char* asString;
 
+  temporary1 = singlyLinkedListAPI.InsertInOrder(head, 10);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  printf("%s", asString);
+  assert(strcmp("1->10",asString) == 0);
+  free(temporary1->next);
+  head->next = NULL;
+
+  temporary1 = singlyLinkedListAPI.InsertInOrder(head, -2);
+  asString = singlyLinkedListAPI.ToString(head);
+  assert(strcmp("-2->1",asString) == 0);
+  free(temporary1->next);
+  head->next = NULL;
+
+  return 0;
+}
+
+int OneTwoNULLTests()
+{
+  return 0;
+}
+
+int OneTwoThreeNULLTests()
+{
   return 0;
 }
