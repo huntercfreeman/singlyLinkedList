@@ -145,6 +145,7 @@ int OneNULLTests()
   singlyLinkedListNode* temporary1;
   singlyLinkedListNode* temporary2;
   char* asString;
+  int booleanReturnValue;
 
   // InsertInOrder
   temporary1 = singlyLinkedListAPI.InsertInOrder(head, 10);
@@ -169,6 +170,81 @@ int OneNULLTests()
   assert(strcmp("1->5",asString) == 0);
   free(temporary1->next);
   head->next = NULL;
+
+  // AddValueAfter
+  temporary1 = singlyLinkedListAPI.AddValueAfter(head, 4);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->4",asString) == 0);
+  free(temporary1->next);
+  head->next = NULL;
+
+  // AddNodeStart
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 154;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeStart(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("154->1",asString) == 0);
+  free(temporary1);
+  head->next = NULL;
+
+  // AddValueStart
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 154;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeStart(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("154->1",asString) == 0);
+  free(temporary1);
+  head->next = NULL;
+
+  // AddNodeEnd
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 3;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeEnd(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->3",asString) == 0);
+  free(temporary1->next);
+  head->next = NULL;
+
+  // AddValueEnd
+  temporary1 = singlyLinkedListAPI.AddValueEnd(head, 1);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->1",asString) == 0);
+  free(temporary1->next);
+  head->next = NULL;
+
+  // Clear
+  temporary1 = singlyLinkedListAPI.Clear(head);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(NULL == asString);
+  head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->value = 1;
+  head->next = NULL;
+
+  // Contains
+  booleanReturnValue = singlyLinkedListAPI.Contains(head, 1);
+  assert(1 == booleanReturnValue);
+
+  // Contains
+  booleanReturnValue = singlyLinkedListAPI.Contains(head, 2);
+  assert(0 == booleanReturnValue);
+
+  // Equal
+  booleanReturnValue = singlyLinkedListAPI.Equal(head, head);
+  assert(booleanReturnValue == 1);
+
+  // Equal
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 3;
+  temporary2->next = NULL;
+  booleanReturnValue = singlyLinkedListAPI.Equal(head, temporary2);
+  assert(booleanReturnValue == 0);
+
+  // Count
+  int count = singlyLinkedListAPI.Count(head);
+  assert(1 == count);
 
   return 0;
 }
