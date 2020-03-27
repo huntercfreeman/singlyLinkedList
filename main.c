@@ -362,14 +362,13 @@ int OneFiveNULLTests()
   temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
   temporary2->value = 4;
   temporary2->next = NULL;
-  temporary1 = singlyLinkedListAPI.AddNodeStart(head, temporary2);
+  temporary1 = singlyLinkedListAPI.AddNodeEnd(head, temporary2);
   asString = singlyLinkedListAPI.ToString(temporary1);
-  assert(strcmp("4->1->5",asString) == 0);
+  assert(strcmp("1->5->4",asString) == 0);
   free(temporary1->next->next);
-  temporary1->next->value = 5;
   temporary1->next->next = NULL;
-  temporary1->value = 1;
-  head = temporary1;
+
+  
 
   return 0;
 }
