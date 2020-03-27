@@ -368,7 +368,57 @@ int OneFiveNULLTests()
   free(temporary1->next->next);
   temporary1->next->next = NULL;
 
-  
+  // AddValueEnd
+  temporary1 = singlyLinkedListAPI.AddValueEnd(head, 3);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->5->3",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->next = NULL;
+
+  // Clear
+  temporary1 = singlyLinkedListAPI.Clear(head);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(NULL == asString);
+  head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->value = 1;
+  head->next = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->next->value = 5;
+  head->next->next = NULL;
+
+  // Contains
+  booleanReturnValue = singlyLinkedListAPI.Contains(head, 5);
+  assert(1 == booleanReturnValue);
+
+  // Equal
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 10;
+  temporary2->next = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->next->value = 100;
+  booleanReturnValue = singlyLinkedListAPI.Equal(head, temporary2);
+  assert(0 == booleanReturnValue);
+  singlyLinkedListAPI.Clear(temporary2);
+
+  // Count
+  int count = singlyLinkedListAPI.Count(head);
+  assert(2 == count);
+
+  // FindFirst
+  temporary1 = singlyLinkedListAPI.FindFirst(head, 5);
+  assert(temporary1->value == 5);
+
+  // FindLast
+  temporary1 = singlyLinkedListAPI.FindLast(head, 1);
+  assert(temporary1->value == 1);
+
+  /*
+  // RemoveFirst
+  temporary1 = singlyLinkedListAPI.RemoveFirst(head, 1);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  fprintf(stderr, "%s\n", asString);
+  assert(strcmp("5", asString) == 0);
+  */
+
+
 
   return 0;
 }
