@@ -6,8 +6,7 @@
 
 int NULLTests();
 int OneNULLTests();
-int OneTwoNULLTests();
-int OneTwoThreeNULLTests();
+int OneFiveNULLTests();
 
 int main()
 {
@@ -17,11 +16,8 @@ int main()
   // 1->NULL Tests
   OneNULLTests();
 
-  // 1->2->NULL Tests
-  OneTwoNULLTests();
-
-  // 1->2->3->NULL Tests
-  OneTwoThreeNULLTests();
+  // 1->5->NULL Tests
+  OneFiveNULLTests();
 
   return 0;
 }
@@ -282,12 +278,98 @@ int OneNULLTests()
   return 0;
 }
 
-int OneTwoNULLTests()
+int OneFiveNULLTests()
 {
-  return 0;
-}
+  singlyLinkedListNode* head = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->value = 1;
+  head->next = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  head->next->value = 5;
+  head->next->next = NULL;
+  singlyLinkedListNode* temporary1;
+  singlyLinkedListNode* temporary2;
+  char* asString;
+  int booleanReturnValue;
 
-int OneTwoThreeNULLTests()
-{
+  // InsertInOrder Beginning
+  temporary1 = singlyLinkedListAPI.InsertInOrder(head, -2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("-2->1->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+  temporary1->value = 1;
+  head = temporary1;
+
+  // InsertInOrder Middle
+  temporary1 = singlyLinkedListAPI.InsertInOrder(head, 3);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->3->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+
+  // InsertInOrder End
+  temporary1 = singlyLinkedListAPI.InsertInOrder(head, 9);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->5->9",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+
+  // AddNodeAfter
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 9;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeAfter(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->9->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+
+  // AddValueAfter
+  temporary1 = singlyLinkedListAPI.AddValueAfter(head, 9);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("1->9->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+
+  // AddNodeStart
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 4;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeStart(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("4->1->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+  temporary1->value = 1;
+  head = temporary1;
+
+  // AddValueStart
+  temporary1 = singlyLinkedListAPI.AddValueStart(head, 4);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("4->1->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+  temporary1->value = 1;
+  head = temporary1;
+
+  // AddNodeEnd
+  temporary2 = (singlyLinkedListNode*)malloc(sizeof(singlyLinkedListNode));
+  temporary2->value = 4;
+  temporary2->next = NULL;
+  temporary1 = singlyLinkedListAPI.AddNodeStart(head, temporary2);
+  asString = singlyLinkedListAPI.ToString(temporary1);
+  assert(strcmp("4->1->5",asString) == 0);
+  free(temporary1->next->next);
+  temporary1->next->value = 5;
+  temporary1->next->next = NULL;
+  temporary1->value = 1;
+  head = temporary1;
+
   return 0;
 }
