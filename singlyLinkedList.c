@@ -387,7 +387,7 @@ static char* ToString(singlyLinkedListNode* head)
 {
   if(head == NULL) return NULL;
 
-  stringBuilder* stringBuilder = malloc(sizeof(stringBuilder));
+  stringBuilder* stringBuilder = stringBuilderAPI.Constructor();
   stringBuilderAPI.AppendInt(stringBuilder, head->value);
 
   singlyLinkedListNode* temporary = head;

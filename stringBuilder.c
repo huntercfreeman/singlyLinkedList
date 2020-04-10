@@ -64,4 +64,15 @@ static stringBuilder* AppendInt(stringBuilder *stringBuilder, int value)
   return stringBuilder;
 }
 
-stringBuilderAPIStruct const stringBuilderAPI = {AppendChars, AppendInt};
+static stringBuilder* Constructor()
+{
+  stringBuilder* stringBuilder = malloc(sizeof(stringBuilder));
+  stringBuilder->length = 0;
+  stringBuilder->capacity = 0;
+  stringBuilder->maxCapacity = 0;
+  stringBuilder->string = NULL;
+
+  return stringBuilder;
+}
+
+stringBuilderAPIStruct const stringBuilderAPI = {AppendChars, AppendInt, Constructor};
